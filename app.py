@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import cv2
 import numpy as np
+import os
 
 app = Flask(__name__)
 
@@ -22,4 +23,4 @@ def analyze():
     return jsonify({'analysis': result})
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
